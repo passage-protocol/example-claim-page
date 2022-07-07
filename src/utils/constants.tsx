@@ -10,7 +10,7 @@ export const PASSPORT_INTERFACE = new Interface([
   "function setClaimEnabled(bool _claimEnabled)",
   "function setClaimlistClaimEnabled(bool _claimEnabled)",
   "function setClaimlistRoot(bytes32 _claimlistRoot)",
-  "function claimClaimlist(bytes32[] calldata _proof, uint256 _maxAmount, uint256 _claimAmount)",
+  "function claimClaimlist(bytes32[] calldata _proof, uint256 _maxAmount, uint256 _claimAmount) external payable",
 ]);
 
 // addresses & maximum claim amount per address
