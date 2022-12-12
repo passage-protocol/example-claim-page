@@ -12,7 +12,7 @@ import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [chain.rinkeby], // use chain of Passport contract here
+  [chain.goerli], // use chain of Passport contract here
   [alchemyProvider({ alchemyId })]
 );
 

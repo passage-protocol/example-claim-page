@@ -3,7 +3,8 @@ import { useAccount, useNetwork } from "wagmi";
 
 import { Account, Connect, NetworkSwitcher } from "../components";
 import { Claim } from "../components/Claim";
-import { ClaimList } from "../components/Claimlist";
+import { ClaimlistModule } from "../components/ClaimlistModule";
+import { PricedMintModule } from "../components/PricedMintModule";
 import { useIsMounted } from "../hooks";
 
 function Page() {
@@ -20,8 +21,9 @@ function Page() {
           <NetworkSwitcher />
           {activeChain && !activeChain.unsupported && (
             <>
-              <Claim />
-              <ClaimList accountAddress={data.address} />
+              <Claim accountAddress={data.address} />
+              <ClaimlistModule />
+              <PricedMintModule />
             </>
           )}
         </>
