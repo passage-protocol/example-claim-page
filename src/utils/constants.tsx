@@ -9,11 +9,7 @@ export const PRICEDMINT_MM_ADDRESS = "0xdE1FB1BE65a44C73761ebDABb10c4b101bc819c7
 // human readable interface
 // support pricedmint & claimlist
 export const PASSPORT_INTERFACE = new Interface([
-  "function claim(uint256 mintingModuleIndex, uint256[] calldata tokenIds, uint256[] calldata mintAmounts, bytes32[] calldata proof, bytes calldata data) external payable",
-  "function setClaimEnabled(bool _claimEnabled)",
-  "function setClaimlistClaimEnabled(bool _claimEnabled)",
-  "function setClaimlistRoot(bytes32 _claimlistRoot)",
-  "function claimClaimlist(bytes32[] calldata _proof, uint256 _maxAmount, uint256 _claimAmount) external payable",
+  "function claim(uint256 mintingModuleIndex, uint256[] calldata tokenIds, uint256[] calldata mintAmounts, bytes32[] calldata proof, bytes calldata data) external payable"
 ]);
 
 export const MM_INTERFACE = new Interface([
