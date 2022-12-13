@@ -1,9 +1,10 @@
-import { ethers, utils } from "ethers";
+import { utils } from "ethers";
 import { useContractWrite } from "wagmi";
 import {
   PASSPORT_CONTRACT_ADDRESS,
   PASSPORT_INTERFACE,
-  CLAIMLIST_ADDRESSES
+  CLAIMLIST_ADDRESSES,
+  MINT_PRICE
 } from "../utils/constants";
 import {
   getClaimlistMerkleProof,
@@ -19,17 +20,17 @@ export function Claim({ accountAddress }: { accountAddress: string }) {
     "claim",
     {
       args: [
-        0,
+        0, // assuming PricedMint module is index 0
         [0],
         [1],
         [],
         "0x"
       ],
-      overrides: { value: ethers.utils.parseEther("0.1") }, // claim price (if applicable)
+      overrides: { value: MINT_PRICE }, // claim price (if applicable)
     }
   );
 
-  const supplementalArgs = utils.defaultAbiCoder.encode(["uint", "uint"], [2, 2]);
+  const supplementalArgs = utils.defaultAbiCoder.encode(["uint", "uint"], [1, 1]);
   const { write: claimClaimlist } = useContractWrite(
     {
       addressOrName: PASSPORT_CONTRACT_ADDRESS,
@@ -38,13 +39,13 @@ export function Claim({ accountAddress }: { accountAddress: string }) {
     "claim",
     {
       args: [
-        0,
+        1, // assuming ClaimList module is index 1
         [0],
-        [2],
-        getClaimlistMerkleProof(CLAIMLIST_ADDRESSES, accountAddress, "2"),
+        [1],
+        getClaimlistMerkleProof(CLAIMLIST_ADDRESSES, accountAddress, "1"),
         supplementalArgs
       ], // proof, maximum claim amount (as stored in merkle tree), claim amount on transaction
-      overrides: { value: ethers.utils.parseEther("0.2") }, // claim price * 2 (claim amt)
+      overrides: { value: MINT_PRICE }, // claim price
     }
   );
 

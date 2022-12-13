@@ -1,10 +1,11 @@
 import { Interface } from "ethers/lib/utils";
 import { ClaimlistAddress } from "./merkleTree";
+import { ethers } from "ethers";
 
 // contract address of you Passport
-export const PASSPORT_CONTRACT_ADDRESS = "0x525C7063E7C20997BaaE9bDa922159152D0e8417"; // currently pointed at local
-export const CLAIMLIST_MM_ADDRESS = "0x4bb279a97dA674b94F5b79c9fE5c44Cf5896DCef";
-export const PRICEDMINT_MM_ADDRESS = "0xdE1FB1BE65a44C73761ebDABb10c4b101bc819c7";
+export const PASSPORT_CONTRACT_ADDRESS = "REPLACE_ME";
+export const CLAIMLIST_MM_ADDRESS = "REPLACE_ME";
+export const PRICEDMINT_MM_ADDRESS = "REPLACE_ME";
 
 // human readable interface
 // support pricedmint & claimlist
@@ -22,27 +23,29 @@ export const CLAIMLIST_MM_INTERFACE = new Interface([
   "function setClaimlistRoot(bytes32 _claimlistRoot) external"
 ]);
 
+export const MINT_PRICE = ethers.utils.parseEther("0.1"); // minting price
+
 // addresses & maximum claim amount per address
 // can be publicly because the security lies with the root being set by you
 export const CLAIMLIST_ADDRESSES: ClaimlistAddress[] = [
   {
     address: "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
-    maximumClaimAmount: "2",
+    maximumClaimAmount: "1",
   },
   {
     address: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-    maximumClaimAmount: "2",
+    maximumClaimAmount: "1",
   },
   {
     address: "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc",
-    maximumClaimAmount: "2",
+    maximumClaimAmount: "1",
   },
   {
     address: "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
-    maximumClaimAmount: "2",
+    maximumClaimAmount: "1",
   },
   {
-    address: "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
-    maximumClaimAmount: "2",
+    address: "0x41B69076873C5e02C81f750504dc0d22e138c25d",
+    maximumClaimAmount: "1",
   },
 ];

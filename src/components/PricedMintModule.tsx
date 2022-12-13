@@ -18,7 +18,7 @@ export function PricedMintModule() {
       args: [true],
     }
   );
-
+  
   return (
     <div>
       <button onClick={() => setIsActive()}>Enable PricedMint Claim</button>
