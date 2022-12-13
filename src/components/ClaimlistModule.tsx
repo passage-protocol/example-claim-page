@@ -13,7 +13,6 @@ import {
 
 export function ClaimlistModule() {
   const claimlistRoot = getClaimlistMerkleRoot(CLAIMLIST_ADDRESSES);
-  console.log(claimlistRoot);
 
   const { write: setIsActive } = useContractWrite(
     {
