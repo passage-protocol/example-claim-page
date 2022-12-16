@@ -12,7 +12,7 @@ See [Passage Docs](https://docs.passage.xyz) for complete documentation.
 
 Create an `.env` file in the root following `.env.example`
 
-Add your Passport Contract address `PASSPORT_CONTRACT_ADDRESS` in `constant.tsx`
+Add your Passport Contract address `PASSPORT_CONTRACT_ADDRESS`, ClaimList minting module contract address `CLAIMLIST_MM_ADDRESS`, and PricedMint minting module contract address `PRICEDMINT_MM_ADDRESS` into `constant.tsx`.
 
 Change chain in `_app.tsx` `configureChains` hook to the chain where your Passport contract is
 
