@@ -21,7 +21,7 @@ export function Claim({ accountAddress }: { accountAddress: string }) {
     {
       args: [
         0, // assuming PricedMint module is index 0
-        [0], // tokenIds
+        [], // unused
         [1], // mint amounts
         [],
         "0x"
@@ -42,7 +42,7 @@ export function Claim({ accountAddress }: { accountAddress: string }) {
     {
       args: [
         1, // assuming ClaimList module is index 1
-        [0], // tokenIds
+        [], // unused
         [1], // mint amounts
         getClaimlistMerkleProof(CLAIMLIST_ADDRESSES, accountAddress, "1"), // proof
         claimlistDataArgs // maximum claim amount (as stored in merkle tree), claim amount on transaction
